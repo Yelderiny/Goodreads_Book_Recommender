@@ -7,8 +7,8 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
-        BookExtractor BE = new BookExtractor();
+        var sc = new Scanner(System.in);
+        var BE = new BookExtractor();
 
         BE.readExcel("goodreads_library_export.xlsx");
 
@@ -28,9 +28,9 @@ public class Main
      */
     private static ArrayList<Book> getRandomRecommendtaions(ArrayList<Book> recommendationList)
     {
-        ArrayList<Book> recommendations = new ArrayList<>();
-        ArrayList<Book> toyList = new ArrayList<>(recommendationList);
-        Random random = new Random();
+        var recommendations = new ArrayList<Book>();
+        var toyList = new ArrayList<>(recommendationList);
+        var random = new Random();
 
         while (recommendations.size() < 3)
         {
@@ -39,7 +39,6 @@ public class Main
             recommendations.add(randomBook);
             toyList.remove(randomBook);
         }
-
         return recommendations;
     }
 
@@ -50,8 +49,8 @@ public class Main
      */
     private static ArrayList<Book> getRecommendations(ArrayList<Book> recommendationList)
     {
-        ArrayList<Book> recommendations = new ArrayList<>(); //output list
-        ArrayList<Book> toyList = new ArrayList<>(recommendationList); //copied input list (to toy with)
+        var recommendations = new ArrayList<Book>(); //output list
+        var toyList = new ArrayList<>(recommendationList); //copied input list (to toy with)
 
         //iterate until there are three recommendations
         while (recommendations.size() < 3)
@@ -71,7 +70,7 @@ public class Main
             discarded.forEach(toyList::remove); //remove all discarded books from toyList
         }
 
-        while (recommendations.size() != 3) { recommendations.remove(recommendations.size() - 1);} //in the case there are more than three recommendations, remove from the end until there are three
+        while (recommendations.size() != 3) recommendations.remove(recommendations.size() - 1); //in the case there are more than three recommendations, remove from the end until there are three
 
         return recommendations;
     }

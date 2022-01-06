@@ -21,11 +21,11 @@ public class BookExtractor
      */
     public void readExcel(String inPath)
     {
-        File excelFile = new File(inPath); //get input Excel file
+        var excelFile = new File(inPath); //get input Excel file
 
         try (FileInputStream input = new FileInputStream(excelFile))
         {
-            XSSFWorkbook workbook = new XSSFWorkbook(input); //get workbook from the FileInputStream
+            var workbook = new XSSFWorkbook(input); //get workbook from the FileInputStream
 
             XSSFSheet propSheet = workbook.getSheetAt(0); //instantiate the sheet
 
@@ -50,7 +50,7 @@ public class BookExtractor
         {
             if (row.getRowNum() == 0) continue;
 
-            Book book = new Book(); //create new Book instance
+            var book = new Book(); //create new Book instance
 
             //traverse every cell in the row
             for (Cell cell : row)
